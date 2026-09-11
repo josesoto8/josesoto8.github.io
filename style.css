@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #eef2e1; 
+    background-color: #eef2e1; /* Color de fondo crema-verdoso extraído de tu imagen */
     font-family: sans-serif;
     min-height: 100vh;
     display: flex;
@@ -18,30 +18,30 @@ body {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    gap: 40px; 
+    gap: 40px; /* Separación vertical entre 1, 2 y 3 */
     margin-top: 20px;
 }
 
-/* AQUÍ ESTÁ EL CAMBIO: Se eliminó el border: 4px solid #000; y el fondo blanco */
+/* Estilo base para las imágenes */
 .img-box {
     display: block;
-    width: 60px; 
+    width: 60px; /* Tamaño del cuadro 2 y 3 */
     height: 60px;
-    background-color: transparent; /* Fondo transparente para que solo se vea tu imagen */
-    border: none; /* Sin bordes */
-    object-fit: contain; /* Ajusta la imagen sin recortarla */
+    background-color: #fff; /* Fondo blanco temporal si no carga la imagen */
+    border: 4px solid #000;
+    object-fit: cover;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .img-box.large {
-    width: 140px; 
+    width: 140px; /* Cuadro 1 más grande */
     height: 70px;
 }
 
-/* Efecto al pasar el cursor */
 .img-box:hover {
     transform: scale(1.05);
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
 }
 
 .item {
@@ -50,16 +50,16 @@ body {
     position: relative;
 }
 
-/* Opciones ocultas (4, 5, 6) con su animación original */
+/* Opciones ocultas (4, 5, 6) */
 .submenu {
     display: flex;
     gap: 15px;
     margin-left: 20px;
     opacity: 0;
     visibility: hidden;
-    transform: translateX(-30px); 
-    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); 
-    pointer-events: none; 
+    transform: translateX(-30px); /* Empieza un poco a la izquierda */
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); /* Animación elástica/suave */
+    pointer-events: none; /* Evita clics cuando está oculto */
 }
 
 /* Efecto Hover para PC y clase Activa para celular */
@@ -92,7 +92,7 @@ body {
     }
 
     .submenu {
-        flex-wrap: wrap; 
+        flex-wrap: wrap; /* Si la pantalla es muy pequeña, caen hacia abajo */
         margin-left: 10px;
     }
     
