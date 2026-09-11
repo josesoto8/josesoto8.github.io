@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Interactivo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+        <!-- Imagen 1 (Principal) -->
+        <div class="item main-item">
+            <img src="1.png" alt="Imagen 1" class="img-box large">
+        </div>
+
+        <!-- Imagen 2 con submenú interactivo -->
+        <div class="item has-submenu">
+            <img src="2.png" alt="Imagen 2" class="img-box trigger">
+            <div class="submenu">
+                <a href="https://ejemplo.com/link4" target="_blank">
+                    <img src="4.png" alt="Opción 4" class="img-box sub-img">
+                </a>
+                <a href="https://ejemplo.com/link5" target="_blank">
+                    <img src="5.png" alt="Opción 5" class="img-box sub-img">
+                </a>
+                <a href="https://ejemplo.com/link6" target="_blank">
+                    <img src="6.png" alt="Opción 6" class="img-box sub-img">
+                </a>
+            </div>
+        </div>
+
+        <!-- Imagen 3 con submenú interactivo -->
+        <div class="item has-submenu">
+            <img src="3.png" alt="Imagen 3" class="img-box trigger">
+            <div class="submenu">
+                <a href="https://ejemplo.com/link4" target="_blank">
+                    <img src="4.png" alt="Opción 4" class="img-box sub-img">
+                </a>
+                <a href="https://ejemplo.com/link5" target="_blank">
+                    <img src="5.png" alt="Opción 5" class="img-box sub-img">
+                </a>
+                <a href="https://ejemplo.com/link6" target="_blank">
+                    <img src="6.png" alt="Opción 6" class="img-box sub-img">
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Texto del pie de página -->
+    <footer class="footer">
+        2026. José Soto
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
