@@ -1,57 +1,102 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú Interactivo</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* Reseteo básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <main class="container">
-        <!-- Imagen 1 (Principal) -->
-        <div class="item main-item">
-            <img src="1.png" alt="Imagen 1" class="img-box large">
-        </div>
+body {
+    background-color: #eef2e1; 
+    font-family: sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
 
-        <!-- Imagen 2 con submenú interactivo -->
-        <div class="item has-submenu">
-            <img src="2.png" alt="Imagen 2" class="img-box trigger">
-            <div class="submenu">
-                <a href="https://ejemplo.com/link4" target="_blank">
-                    <img src="4.png" alt="Opción 4" class="img-box sub-img">
-                </a>
-                <a href="https://ejemplo.com/link5" target="_blank">
-                    <img src="5.png" alt="Opción 5" class="img-box sub-img">
-                </a>
-                <a href="https://ejemplo.com/link6" target="_blank">
-                    <img src="6.png" alt="Opción 6" class="img-box sub-img">
-                </a>
-            </div>
-        </div>
+.container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 40px; 
+    margin-top: 20px;
+}
 
-        <!-- Imagen 3 con submenú interactivo -->
-        <div class="item has-submenu">
-            <img src="3.png" alt="Imagen 3" class="img-box trigger">
-            <div class="submenu">
-                <a href="https://ejemplo.com/link4" target="_blank">
-                    <img src="4.png" alt="Opción 4" class="img-box sub-img">
-                </a>
-                <a href="https://ejemplo.com/link5" target="_blank">
-                    <img src="5.png" alt="Opción 5" class="img-box sub-img">
-                </a>
-                <a href="https://ejemplo.com/link6" target="_blank">
-                    <img src="6.png" alt="Opción 6" class="img-box sub-img">
-                </a>
-            </div>
-        </div>
-    </main>
+/* AQUÍ ESTÁ EL CAMBIO: Se eliminó el border: 4px solid #000; y el fondo blanco */
+.img-box {
+    display: block;
+    width: 60px; 
+    height: 60px;
+    background-color: transparent; /* Fondo transparente para que solo se vea tu imagen */
+    border: none; /* Sin bordes */
+    object-fit: contain; /* Ajusta la imagen sin recortarla */
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-    <!-- Texto del pie de página -->
-    <footer class="footer">
-        2026. José Soto
-    </footer>
+.img-box.large {
+    width: 140px; 
+    height: 70px;
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+/* Efecto al pasar el cursor */
+.img-box:hover {
+    transform: scale(1.05);
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Opciones ocultas (4, 5, 6) con su animación original */
+.submenu {
+    display: flex;
+    gap: 15px;
+    margin-left: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-30px); 
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); 
+    pointer-events: none; 
+}
+
+/* Efecto Hover para PC y clase Activa para celular */
+.item.has-submenu:hover .submenu,
+.item.has-submenu.active .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+.sub-img {
+    width: 60px;
+    height: 60px;
+}
+
+/* Texto de la esquina inferior izquierda */
+.footer {
+    font-size: 14px;
+    color: #000;
+    margin-top: auto;
+    padding-top: 40px;
+    font-weight: 500;
+}
+
+/* Diseño Responsive (Celulares) */
+@media (max-width: 600px) {
+    body {
+        padding: 20px;
+    }
+
+    .submenu {
+        flex-wrap: wrap; 
+        margin-left: 10px;
+    }
+    
+    .img-box.large {
+        width: 120px;
+    }
+}
