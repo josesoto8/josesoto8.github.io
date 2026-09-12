@@ -6,7 +6,9 @@
 }
 
 body {
-    background-color: #eef2e1; /* Color de fondo crema-verdoso extraído de tu imagen */
+    background-color: #eef2e1; /* Color de fondo original */
+    /* Textura de ruido tipo film grain manteniendo tu color de fondo */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
     font-family: sans-serif;
     min-height: 100vh;
     display: flex;
@@ -22,26 +24,35 @@ body {
     margin-top: 20px;
 }
 
-/* Estilo base para las imágenes */
+/* Estilo base para las imágenes: se eliminó el fondo y el borde negro */
 .img-box {
     display: block;
     width: 60px; /* Tamaño del cuadro 2 y 3 */
     height: 60px;
-    background-color: #fff; /* Fondo blanco temporal si no carga la imagen */
-    border: 4px solid #000;
     object-fit: cover;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease; /* Se removió la sombra de la transición */
 }
 
+/* ==========================================
+   NUEVOS ESTILOS ESPECÍFICOS PARA LA IMAGEN 1.png 
+   ========================================== */
 .img-box.large {
-    width: 140px; /* Cuadro 1 más grande */
-    height: 70px;
+    width: 70px; /* Cambia este valor al tamaño que desees */
+    height: auto; /* Permite que la altura se ajuste sola */
+    aspect-ratio: 638 / 391; /* Mantiene la forma exacta de tus dimensiones */
+    image-rendering: high-quality; /* Ayuda a mejorar la calidad al encogerla */
 }
 
+/* Hover de la imagen general (cuadros 2 y 3 sí crecen) */
 .img-box:hover {
     transform: scale(1.05);
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Quitar animación de crecimiento específicamente a la Imagen 1.png */
+.img-box.large:hover {
+    transform: none;
+    cursor: default; /* Hace que el cursor sea el normal y no la "manita" */
 }
 
 .item {
@@ -83,6 +94,8 @@ body {
     margin-top: auto;
     padding-top: 40px;
     font-weight: 500;
+    /* Fuente estilo máquina de escribir */
+    font-family: 'Courier New', Courier, monospace; 
 }
 
 /* Diseño Responsive (Celulares) */
@@ -96,7 +109,8 @@ body {
         margin-left: 10px;
     }
     
+    /* Ajusté el tamaño responsivo para 1.png para que siga viéndose bien en celular */
     .img-box.large {
-        width: 120px;
+        width: 80px; 
     }
 }
