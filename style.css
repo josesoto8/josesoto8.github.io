@@ -73,8 +73,17 @@ body {
     pointer-events: none; /* Evita clics cuando está oculto */
 }
 
-/* Efecto Hover para PC y clase Activa para celular */
-.item.has-submenu:hover .submenu,
+/* Efecto Hover SOLO para pantallas con ratón (PC) */
+@media (hover: hover) {
+    .item.has-submenu:hover .submenu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+        pointer-events: auto;
+    }
+}
+
+/* Clase Activa controlada por tu script (para celulares) */
 .item.has-submenu.active .submenu {
     opacity: 1;
     visibility: visible;
@@ -111,6 +120,6 @@ body {
     
     /* Ajusté el tamaño responsivo para 1.png para que siga viéndose bien en celular */
     .img-box.large {
-        width: 60px; 
+        width: 65px; 
     }
 }
