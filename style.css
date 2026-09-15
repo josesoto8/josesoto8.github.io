@@ -122,4 +122,10 @@ body {
     .img-box.large {
         width: 65px; 
     }
+    
+    /*Ocultar para celular */
+    .submenu a:nth-child(1),
+    .submenu a:nth-child(2) {
+        display: none;
+    }
 }
