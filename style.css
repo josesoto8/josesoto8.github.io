@@ -59,6 +59,7 @@ body {
     display: flex;
     align-items: center;
     position: relative;
+    width: fit-content;
 }
 
 /* Opciones ocultas (4, 5, 6) */
