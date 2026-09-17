@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safewill Data Web</title>
+    <link rel="stylesheet" href="SWDCSS.css">
+    <!-- Librería para generar archivos Excel (.xlsx) -->
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 id="titulo">¡Hola!</h1>
+        <p id="subtitulo" class="subtitle">¿Qué archivos quieres que unamos hoy?</p>
+
+        <div class="card">
+            <h3>Archivos a procesar</h3>
+            <div class="file-controls">
+                <input type="file" id="fileInput" accept=".csv" multiple hidden>
+                <!-- Este es el botón + que facilita el uso en móvil -->
+                <button id="btnAddFiles" class="btn btn-primary">+ Añadir CSVs</button>
+                <button id="btnClear" class="btn btn-danger">Limpiar lista</button>
+            </div>
+            
+            <ul id="fileList" class="file-list">
+                <li class="empty-msg">Sin archivos seleccionados</li>
+            </ul>
+        </div>
+
+        <div class="options">
+            <label class="checkbox-container">
+                <input type="checkbox" id="chkPromedio">
+                Promediar datos por hora (ej. Hora 12, Hora 13...)
+            </label>
+        </div>
+
+        <div class="actions">
+            <button id="btnSaveCSV" class="btn btn-blue" disabled>Guardar como CSV</button>
+            <button id="btnSaveExcel" class="btn btn-red" disabled>Guardar como Excel</button>
+        </div>
+        
+        <p id="statusMsg" class="status"></p>
+    </div>
+    <script src="SWDJS.js"></script>
+</body>
+</html>
