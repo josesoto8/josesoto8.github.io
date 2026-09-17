@@ -91,6 +91,14 @@ h1 {
     border: none !important;
 }
 
+.logochico {
+    width: 270px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 15px;
+}
+
 .options {
     margin-bottom: 20px;
 }
