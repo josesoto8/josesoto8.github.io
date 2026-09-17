@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSData - Comparador Web</title>
+    <link rel="stylesheet" href="VSDW.css">
+    <link rel="icon" href="vsdw.ico" type="image/x-icon">
+    <!-- Librería para leer/escribir Excel en JavaScript -->
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo (Asegúrate de tener un logo.png en la misma carpeta) -->
+        <div class="logo-container">
+            <img src="logo.png" alt="VSData Logo" id="logo">
+        </div>
+
+        <!-- Sección de Archivos -->
+        <div class="card">
+            <h3>Archivos de entrada</h3>
+            
+            <div class="file-row">
+                <label class="file-btn" for="file-prom">Datos Safewill PROMEDIADOS</label>
+                <input type="file" id="file-prom" accept=".xlsx, .xls">
+                <span id="lbl-prom" class="file-label">No seleccionado</span>
+            </div>
+
+            <div class="file-row">
+                <label class="file-btn" for="file-caseta">Datos de caseta LIMPIOS</label>
+                <input type="file" id="file-caseta" accept=".xlsx, .xls">
+                <span id="lbl-caseta" class="file-label">No seleccionado</span>
+            </div>
+        </div>
+
+        <!-- Sección de Fórmulas -->
+        <div class="card">
+            <h3>Fórmulas Safewill (Opcional, ej: +1.5, *1.05, x-0.5)</h3>
+            <div id="formulas-grid" class="formulas-grid">
+                <!-- Se generará dinámicamente con JavaScript -->
+            </div>
+        </div>
+
+        <!-- Botón Procesar -->
+        <button id="btn-procesar" class="btn-procesar">Procesar y generar archivo .xlsx comparativo</button>
+
+        <!-- Terminal Log -->
+        <div class="card log-card">
+            <h3>Estado del Proceso</h3>
+            <div id="log-text" class="log-text"></div>
+        </div>
+    </div>
+
+    <script src="VSDW.js"></script>
+</body>
+</html>
