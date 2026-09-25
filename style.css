@@ -104,8 +104,11 @@ body {
     margin-top: auto;
     padding-top: 40px;
     font-weight: 500;
-    /* Fuente estilo máquina de escribir */
-    font-family: 'Courier New', Courier, monospace; 
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column; /* Apila el contador arriba y el texto abajo */
+    align-items: flex-start;    /* Centra los elementos */
+    gap: 15px;              /* Agrega un espacio de separación entre ambos */
 }
 
 /* Diseño Responsive (Celulares) */
