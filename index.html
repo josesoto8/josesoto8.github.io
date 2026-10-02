@@ -3,64 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="icono.ico">
     <title>josesoto8</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Configuración base y fondo */
+        body {
+            background-color: #f3f3eb; /* Ajusta al tono exacto de tu web */
+            color: #000;
+            font-family: monospace; /* Cambia por la fuente que estés usando */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ocupa toda la altura de la pantalla */
+        }
+
+        /* Encabezado distribuido en 3 columnas (Logo - Menú - Tema) */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 3rem 5rem;
+        }
+
+        .logo-header img {
+            height: 40px; /* Tamaño del logo en la esquina */
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a, nav span {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .icono-tema {
+            cursor: pointer;
+        }
+
+        /* Contenedor central (ocupa el espacio sobrante y centra su contenido) */
+        main {
+            flex: 1; /* Empuja el header arriba y el footer abajo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-central {
+            max-width: 250px; /* Controla que el logo principal no se haga gigante */
+            height: auto;
+        }
+
+        /* Pie de página centrado */
+        footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            gap: 15px;
+            font-size: 0.9rem;
+        }
+
+        .visitas {
+            background-color: #000;
+            color: #fff;
+            padding: 5px 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+    </style>
 </head>
 <body>
 
-    <main class="container">
-        <!-- Imagen 1 (Principal) -->
-        <div class="item main-item">
-            <img src="1.png" alt="Imagen 1" class="img-box large">
+    <!-- Encabezado superior -->
+    <header>
+        <div class="logo-header">
+            <img src="ruta-a-tu-logo.svg" alt="José Soto">
         </div>
-
-        <!-- Imagen 2 con submenú interactivo -->
-        <div class="item has-submenu">
-            <img src="2.png" alt="Imagen 2" class="img-box trigger" title="Safewill Data">
-            <div class="submenu">
-                <a href="https://github.com/josesoto8/Safewill-Data/releases/download/v1.0.0/Safewill.Data.exe" target="_blank">
-                    <img src="4.png" alt="Descarga .exe" class="img-box sub-img" title="Windows">
-                </a>
-                <a href="https://ejemplo.com/link5" target="_blank">
-                    <img src="5.png" alt="Opción 5" class="img-box sub-img" title="GNU/Linux">
-                </a>
-                <a href="SafewillDataWeb.html" target="_blank">
-                    <img src="6.png" alt="Opción 6" class="img-box sub-img" title="Safewill Data Web">
-                </a>
-                <a id="safewill-github" href="https://github.com/josesoto8/Safewill-Data" target="_blank">
-                    <img src="7.png" alt="Repositorio Github" class="img-box sub-img" title="Repositorio de Github">
-                </a>
-            </div>
+        
+        <nav>
+            <span>|</span>
+            <a href="index.html">Inicio</a> <span>|</span>
+            <a href="Download.html">Descargas</a> <span>|</span>
+            <a href="acerca.html">Acerca de</a>
+        </nav>
+        
+        <div class="icono-tema">
+            "icono tema"
         </div>
+    </header>
 
-        <!-- Imagen 3 con submenú interactivo -->
-        <div class="item has-submenu">
-            <img src="3.png" alt="Imagen 3" class="img-box trigger" title="VSData">
-            <div class="submenu">
-                <a href="https://github.com/josesoto8/VSData/releases/download/v1.0.0/VSData.exe" target="_blank">
-                    <img src="4.png" alt="Descarga .exe" class="img-box sub-img" title="Windows">
-                </a>
-                <a href="https://ejemplo.com/link5" target="_blank">
-                    <img src="5.png" alt="Opción 5" class="img-box sub-img" title="GNU/Linux">
-                </a>
-                <a href="VSDataWeb.html" target="_blank">
-                    <img src="6.png" alt="Opción 6" class="img-box sub-img" title="VSData Web">
-                </a>
-                <a id="vsdata-github" href="https://github.com/josesoto8/VSData" target="_blank">
-                    <img src="7.png" alt="Repositorio Github" class="img-box sub-img" title="Repositorio de Github">
-                </a>
-            </div>
-        </div>
-
+    <!-- Centro de la página (Solo el logo, sin los íconos de las apps) -->
+    <main>
+        <img src="ruta-a-tu-logo.svg" alt="José Soto" class="logo-central">
     </main>
 
-    <!-- Texto del pie de página -->
-    <footer class="footer">
-        <img src="https://hits.sh/josesoto8.github.io.svg?style=for-the-badge&label=visitas&color=000000&labelColor=000000" alt="Visitas" />
-        <span>2026. José Soto</span>
+    <!-- Pie de página -->
+    <footer>
+        <div class="visitas">VISITAS  350</div>
+        <div>2026. José Soto</div>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>

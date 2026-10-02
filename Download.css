@@ -1,0 +1,176 @@
+/* Reseteo básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #eef2e1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+    font-family: sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
+
+/* ==========================================
+   MENÚ SUPERIOR
+   ========================================== */
+.header-menu {
+    display: flex;
+    justify-content: space-around; /* Evita que queden pegados a las orillas */
+    align-items: center;
+    width: 100%;
+    max-width: 1000px; /* Limita el ancho para que queden centrados y juntos */
+    margin: 0 auto 40px auto; /* Centra el menú en la página */
+}
+
+/* Logo configurado para que no se corte ni distorsione */
+.logo-img {
+    height: 45px; 
+    width: auto;
+    object-fit: contain; 
+}
+
+/* Letras idénticas al texto de abajo */
+.nav-links, .theme-toggle {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 500;
+    font-size: 14px;
+    color: #000;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000;
+    margin: 0 5px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #555;
+}
+
+/* ==========================================
+   CONTENEDOR CENTRAL DE APPS
+   ========================================== */
+.container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    justify-content: center; 
+    gap: 20px;             
+}
+
+/* Estilo base para las imágenes interactivas */
+.img-box {
+    display: block;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.img-box:hover {
+    transform: scale(1.05);
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: fit-content;
+}
+
+/* ==========================================
+   SUBMENÚ
+   ========================================== */
+.submenu {
+    display: flex;
+    gap: 15px;
+    
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0;
+    padding: 0 10px; /* Margen horizontal interno */
+    
+    transition: max-height 0.4s ease, opacity 0.4s ease, margin-top 0.4s ease, padding 0.4s ease;
+    pointer-events: none;
+}
+
+.sub-img {
+    width: 65px;
+    height: 65px;
+}
+
+/* Expande y da espacio para que las apps crezcan sin cortarse */
+@media (hover: hover) {
+    .item.has-submenu:hover .submenu {
+        max-height: 150px; /* Más espacio para la animación de escala */
+        opacity: 1;
+        margin-top: 15px; 
+        padding-top: 5px;
+        padding-bottom: 5px; /* Deja espacio vertical extra para no recortar la escala(1.05) */
+        pointer-events: auto;
+    }
+}
+
+.item.has-submenu.active .submenu {
+    max-height: 150px;
+    opacity: 1;
+    margin-top: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    pointer-events: auto;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+.footer {
+    font-size: 14px;
+    color: #000;
+    margin-top: auto;
+    padding-top: 40px;
+    font-weight: 500;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+    gap: 15px;
+}
+
+/* ==========================================
+   DISEÑO RESPONSIVE (CELULARES)
+   ========================================== */
+@media (max-width: 600px) {
+    body {
+        padding: 20px;
+    }
+    
+    .header-menu {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .submenu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .item.has-submenu.active .submenu {
+        max-height: 150px; 
+    }
+    
+    .submenu a:nth-child(1),
+    .submenu a:nth-child(2) {
+        display: none;
+    }
+}
